@@ -13,11 +13,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
-import MyPhoto from './principal.png'
+import MyPhoto from './principal.png';
+import { useNavigate } from "react-router-dom";
 
 const pages = [
-  {id: 1, nome : 'Projetos', link : '/#/Repo'},
-  {id: 2, nome : 'Contato', link : '/#/Contato'}
+  {id: 1, nome : 'Projetos', link : '/Repo'},
+  {id: 2, nome : 'Contato', link : '/Contato'}
 ]
 const settings = ['Português', 'English', 'Español'];
 
@@ -26,6 +27,8 @@ const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  let navigate = useNavigate();
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -33,8 +36,9 @@ const NavBar = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const handleCloseNavMenu = (value) => {
+    setAnchorElNav(null)
+    navigate(value, { replace: true });
   };
 
   const handleCloseUserMenu = () => {
@@ -50,7 +54,7 @@ const NavBar = () => {
             variant="h6"
             noWrap
             component="a"
-            href="/#/"
+            onClick={()=>{navigate('./', {replace: true})}}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -93,23 +97,22 @@ const NavBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.id} onClick={handleCloseNavMenu}>
-                  <Button
-                          href={page.link}>
+                <MenuItem key={page.id} onClick={()=>{handleCloseNavMenu(page.link)}}>
+                  <Button>
                     {page.nome}
                   </Button>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Button href="/#/" sx={{ mr: 1, display: { xs: 'flex', md: 'none' }}}>
+          <Button onClick={()=>{navigate('./', {replace: true})}} sx={{ mr: 1, display: { xs: 'flex', md: 'none' }}}>
             <Avatar alt="Lenilson" src={MyPhoto} sx={{ width: 20, minWidth: 30, maxWidth: 60, height: 'auto'}}/>
           </Button>
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href=""
+            onClick={()=>{navigate('./', {replace: true})}}
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -126,8 +129,7 @@ const NavBar = () => {
             {pages.map((page) => (
               <Button
               key={page.id}
-              href={page.link}
-              onClick={handleCloseNavMenu}
+              onClick={()=>{handleCloseNavMenu(page.link)}}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
               {page.nome}

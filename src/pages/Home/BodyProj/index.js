@@ -6,10 +6,12 @@ import myPhoto from "./logo192.png";
 import Gratable1 from '../../Repo/Proj/gratable/gratable1.png'
 import Mail1 from '../../Repo/Proj/mail/gmail1.png'
 import Chat1 from '../../Repo/Proj/chat/chat1.png'
+import {useNavigate} from 'react-router-dom'
 
 export default function BodyProj() {
 
     const { height, width } = useWindowDimensions();
+    let navigate = useNavigate()
 
     const confWid = (width, height) => {
         if(width >= height) {
@@ -58,7 +60,7 @@ export default function BodyProj() {
                     <Typography variant='body2' textAlign='justify' fontSize={0.8/100*width + 1.5/100*height}>Tenho 24 anos e estou graduando em Ciências & Tecnologia pela UFRN. Minha linguagem de programação preferida, atualmente, é JavaScript, e gosto muito de desenvolver aplicações mobile e web com React Native e ReactJS. Já tive experiências também (embora poucas em algumas) em outras linguagens, como C++, PHP, TypeScript e Python. Além disso, já utilizei banco de dados MySQL e Firebase e tenho conhecimento em HTML5 e CSS3. Aqui estão algumas imagens do que já desenvolvi. Mas você pode ver mais clilcando aqui embaixo.</Typography>
                 </div>
                 <div class='d-flex' style={{alignItems: 'center', justifyContent: 'center'}}>
-                    <Button href='/#/Repo' variant="text" style={{fontWeight: 'bold', marginTop: 3/100*width + 1/100*height, fontSize: 0.5/100*width + 1.1/100*height}}>Ver todos os projetos</Button>
+                    <Button onClick={()=>{navigate('./Repo', {replace: true})}} variant="text" style={{fontWeight: 'bold', marginTop: 3/100*width + 1/100*height, fontSize: 0.5/100*width + 1.1/100*height}}>Ver todos os projetos</Button>
                 </div>
             </div>
             <Box style={{display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center', height: '100%', marginLeft: height < width ? 50 : 0}}>
@@ -73,7 +75,7 @@ export default function BodyProj() {
                                         <Box style={{display: 'flex', flexDirection: 'column', justifyContent: contentCard(item.id), maxHeight: 45/100*height, height: 45/100*height, width: '45%', padding: 7}}>
                                             <Typography style={{fontSize: hwPC(1.2,1.2), marginBottom: hwPC(0,1.5), fontWeight: 'bold', alignText: 'center'}}>{item.title}</Typography>
                                             <Typography style={{fontSize: hwPC(1.1,0.6), marginBottom: hwPC(0,2.5), color: 'white'}}>{item.description}</Typography>
-                                            <Button href='/#/Repo' variant="outlined" style={{fontSize: hwPC(0.6,0.6), alignSelf: 'flex-start', color: 'white', borderColor: 'white',  maxWidth: 45, minWidth: hwPC(3.6,3.6), minHeight: hwPC(1.55,1.55), padding: 0}}>Ver mais</Button>
+                                            <Button onClick={()=>{navigate('./Repo', {replace: true})}} variant="outlined" style={{fontSize: hwPC(0.6,0.6), alignSelf: 'flex-start', color: 'white', borderColor: 'white',  maxWidth: 45, minWidth: hwPC(3.6,3.6), minHeight: hwPC(1.55,1.55), padding: 0}}>Ver mais</Button>
                                         </Box>
                                         <Box style={{display: 'flex', padding: 7, justifyContent: item.id === 1 ? 'center' : 'center', height: '100%', width: '65%', alignItems: 'center'}}>
                                             <img src={item.img} style={{ maxHeight: 44/100*height, maxWidth: '100%',borderRadius: 15, width: 'auto'}}/>

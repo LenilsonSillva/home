@@ -6,12 +6,12 @@ import Contact from './pages/Contact'
 
 export default function Routes() {
   return (
-    <HashRouter>
+    <div>
         <Rout>
             <Route path='/' element={<Home/>}/>
             <Route path='/Repo' element={<Repo/>}/>
             <Route path='/Contato' element={<Contact/>}/>
         </Rout>
-    </HashRouter>
+    </div>
   )
 }

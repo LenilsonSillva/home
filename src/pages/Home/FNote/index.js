@@ -6,10 +6,13 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import PublicIcon from '@mui/icons-material/Public';
 import React from 'react';
-import MyPhoto from './principal.png'
+import MyPhoto from './principal.png';
+import {useNavigate} from 'react-router-dom'
 
 export default function FNote() {
     const { height, width } = useWindowDimensions();
+
+    let navigate = useNavigate()
 
     const hwPC = (value1, value2) => {
       return(
@@ -46,7 +49,7 @@ export default function FNote() {
             </Box>
             <Box style={{display: 'flex', flex: 2, flexDirection: 'column', paddingTop: 4/100*height + 4/100*width, alignItems: 'center'}}>
               <Typography variant='subtitle2' fontSize={0.5/100*height + 1/100*width} style={{letterSpacing: '.1rem', fontWeight: '500', color: "rgb(200,200,210)"}}>Desenvolvido por mim mesmo.</Typography>
-              <Button href='/#/Contato' variant="text" style={{marginBlock: 0.3/100*width + 0.1/100*height, fontSize: 0.5/100*width + 0.5/100*height, color: "rgb(200,200,210)"}}>Entrar em contato</Button>
+              <Button onClick={()=>{navigate('./Contato', {replace: true})}} variant="text" style={{marginBlock: 0.3/100*width + 0.1/100*height, fontSize: 0.5/100*width + 0.5/100*height, color: "rgb(200,200,210)"}}>Entrar em contato</Button>
             </Box>
             <Box style={{display: 'flex', flex: 1, flexDirection: 'column', paddingTop: 1/100*height + 2/100*width, justifyContent: 'space-evenly'}}>
               <Box style={{display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-evenly'}}>
@@ -74,7 +77,7 @@ export default function FNote() {
               </Box>
               <Box style={{display: 'flex', flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', height: '100%'}}>
                 <Box style={{display: 'flex', flex: 1}}>
-                  <Button href='/#/Contato' variant="text" style={{fontSize: 1/100*width + 0.5/100*height, color: "rgb(200,200,210)"}}>Entrar em contato</Button>
+                  <Button onClick={()=>{navigate('./Contato', {replace: true})}} variant="text" style={{fontSize: 1/100*width + 0.5/100*height, color: "rgb(200,200,210)"}}>Entrar em contato</Button>
                 </Box>
                 <Box style={{display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', width: '100%'}}>
                   <Link href="http://www.linkedin.com/in/lenilson-sillva" target='blank' rel='LinkedIn'>
