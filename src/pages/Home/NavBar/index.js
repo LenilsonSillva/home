@@ -11,14 +11,13 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import MyPhoto from './principal.png';
 import { useNavigate } from "react-router-dom";
 
 const pages = [
-  {id: 1, nome : 'Projetos', link : '/Repo'},
-  {id: 2, nome : 'Contato', link : '/Contato'}
+  {id: 1, nome : 'Projetos', link : '/repo'},
+  {id: 2, nome : 'Contato', link : '/contato'}
 ]
 const settings = ['Português', 'English', 'Español'];
 
@@ -54,7 +53,7 @@ const NavBar = () => {
             variant="h6"
             noWrap
             component="a"
-            onClick={()=>{navigate('./', {replace: true})}}
+            onClick={()=>{navigate('./home', {replace: true})}}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -105,14 +104,14 @@ const NavBar = () => {
               ))}
             </Menu>
           </Box>
-          <Button onClick={()=>{navigate('./', {replace: true})}} sx={{ mr: 1, display: { xs: 'flex', md: 'none' }}}>
+          <Button onClick={()=>{navigate('./home', {replace: true})}} sx={{ mr: 1, display: { xs: 'flex', md: 'none' }}}>
             <Avatar alt="Lenilson" src={MyPhoto} sx={{ width: 20, minWidth: 30, maxWidth: 60, height: 'auto'}}/>
           </Button>
           <Typography
             variant="h5"
             noWrap
             component="a"
-            onClick={()=>{navigate('./', {replace: true})}}
+            onClick={()=>{navigate('./home', {replace: true})}}
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },

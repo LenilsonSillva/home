@@ -8,9 +8,9 @@ export default function Routes() {
   return (
     <div>
         <Rout>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/Repo' element={<Repo/>}/>
-            <Route path='/Contato' element={<Contact/>}/>
+            <Route path='/home' element={<Home/>} index/>
+            <Route path='/repo' element={<Repo/>}/>
+            <Route path='/contato' element={<Contact/>}/>
         </Rout>
     </div>
   )
